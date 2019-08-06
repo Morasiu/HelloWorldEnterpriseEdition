@@ -1,4 +1,4 @@
-# HelloWorldEnterprizeEdition
+# Hello World Enterprise Edition
 The most simple program done in the most complicated way.
 
 ## Roadmap
