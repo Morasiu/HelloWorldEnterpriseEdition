@@ -45,7 +45,8 @@ namespace HelloWorldLib {
 				switch (configuration.OutputType) {
 					case OutputType.Console:
 						var consoleConfiguration = (ConsoleOutputConfiguration) configuration;
-						Console.ForegroundColor = consoleConfiguration.PrintColor;
+						Console.ForegroundColor = consoleConfiguration.ForegroundColor;
+						Console.BackgroundColor = consoleConfiguration.BackgroundColor;
 						Console.WriteLine(Message);
 						break;
 					default:

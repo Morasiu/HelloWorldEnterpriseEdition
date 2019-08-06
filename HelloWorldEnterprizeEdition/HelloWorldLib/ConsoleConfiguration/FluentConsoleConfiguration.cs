@@ -10,8 +10,14 @@ namespace HelloWorldLib.ConsoleConfiguration {
 			_helloWorldBuilder._outputConfigurations.Add(Configuration);
 		}
 
-		public FluentConsoleConfiguration WithColor(ConsoleColor color) {
-			Configuration.PrintColor = color;
+		public FluentConsoleConfiguration WithForegroundColor(ConsoleColor color) {
+			Configuration.ForegroundColor = color;
+			return this;
+		}
+
+		public FluentConsoleConfiguration WithBackgroundColor(ConsoleColor color)
+		{
+			Configuration.BackgroundColor = color;
 			return this;
 		}
 

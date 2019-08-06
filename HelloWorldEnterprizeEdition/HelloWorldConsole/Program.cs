@@ -8,7 +8,8 @@ namespace HelloWorldConsole {
 				.UseMessage("No hej")
 				.UseLanguage(Language.Polish)
 				.PrintToConsole()
-					.WithColor(ConsoleColor.Cyan)
+					.WithForegroundColor(ConsoleColor.Cyan)
+					.WithBackgroundColor(ConsoleColor.DarkGreen)
 					.Configure()
 				.Build();
 			hello.Print();
