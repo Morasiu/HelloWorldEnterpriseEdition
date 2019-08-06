@@ -13,12 +13,10 @@ The most simple program done in the most complicated way.
 class Program {
 	static void Main(string[] args) {
 		var hello = new HelloWorldBuilder()
-			.UseMessage("No hej")
-			.UseLanguage(Language.Polish)
-			.PrintToConsole()
+			.UseLanguage(Language.English)
+			.PrintToConsole(configuration => configuration
 				.WithForegroundColor(ConsoleColor.Cyan)
-				.WithBackgroundColor(ConsoleColor.DarkGreen)
-				.Configure()
+				.WithBackgroundColor(ConsoleColor.DarkGreen))
 			.Build();
 		hello.Print();
 	}

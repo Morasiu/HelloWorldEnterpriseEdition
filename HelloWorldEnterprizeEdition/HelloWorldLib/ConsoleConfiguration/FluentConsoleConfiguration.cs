@@ -2,12 +2,10 @@
 
 namespace HelloWorldLib.ConsoleConfiguration {
 	public class FluentConsoleConfiguration {
-		private readonly HelloWorldBuilder _helloWorldBuilder;
 		internal ConsoleOutputConfiguration Configuration;
-		internal FluentConsoleConfiguration(HelloWorldBuilder helloWorldBuilder) {
-			_helloWorldBuilder = helloWorldBuilder;
+
+		internal FluentConsoleConfiguration() {
 			Configuration = new ConsoleOutputConfiguration();
-			_helloWorldBuilder._outputConfigurations.Add(Configuration);
 		}
 
 		public FluentConsoleConfiguration WithForegroundColor(ConsoleColor color) {
@@ -15,12 +13,9 @@ namespace HelloWorldLib.ConsoleConfiguration {
 			return this;
 		}
 
-		public FluentConsoleConfiguration WithBackgroundColor(ConsoleColor color)
-		{
+		public FluentConsoleConfiguration WithBackgroundColor(ConsoleColor color) {
 			Configuration.BackgroundColor = color;
 			return this;
 		}
-
-		public HelloWorldBuilder Configure() => _helloWorldBuilder;
 	}
 }

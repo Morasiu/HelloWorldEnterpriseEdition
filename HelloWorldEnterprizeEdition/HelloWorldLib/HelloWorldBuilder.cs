@@ -57,9 +57,12 @@ namespace HelloWorldLib {
 			return this;
 		}
 
-		public FluentConsoleConfiguration PrintToConsole() {
+		public HelloWorldBuilder PrintToConsole(Action<FluentConsoleConfiguration> configureConsole = null) {
 			if(_outputConfigurations.Any(o => o.OutputType == OutputType.Console)) throw new ArgumentException("Console output is already specified.");
-			return new FluentConsoleConfiguration(this);
+			var consoleConfiguration = new FluentConsoleConfiguration();
+			configureConsole?.Invoke(consoleConfiguration);
+			_outputConfigurations.Add(consoleConfiguration.Configuration);
+			return this;
 		}
 	}
 
