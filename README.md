@@ -9,7 +9,7 @@ The most simple program done in the most complicated way.
 
 ## How to use it?
 
-```
+```csharp
 class Program {
 	static void Main(string[] args) {
 		var hello = new HelloWorldBuilder()
