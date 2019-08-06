@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using HelloWorldLib;
 
 namespace HelloWorldLib {
 	public class HelloWorldMessages {
