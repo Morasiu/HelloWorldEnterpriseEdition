@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace HelloWorldLib.ConsoleConfiguration {
+namespace HelloWorldLib.Output.ConsoleConfiguration {
 	public class FluentConsoleConfiguration {
 		internal ConsoleOutputConfiguration Configuration;
 

@@ -1,4 +1,3 @@
-using System;
 using FluentAssertions;
 using HelloWorldLib;
 using Xunit;
@@ -16,8 +15,7 @@ namespace HelloWorldLibTests {
 		}
 
 		[Fact]
-		public void WhenLanguageIsPolish_ReturnPolishMessage()
-		{
+		public void WhenLanguageIsPolish_ReturnPolishMessage() {
 			//Arrange
 			var expectedMessage = HelloWorldMessages.Messages[Language.Polish];
 			//Act

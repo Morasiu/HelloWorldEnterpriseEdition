@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using HelloWorldLib.ConsoleConfiguration;
+using System.Linq;
 using HelloWorldLib.Output;
+using HelloWorldLib.Output.ConsoleConfiguration;
 
 namespace HelloWorldLib {
 	/// <summary>
@@ -38,9 +38,10 @@ namespace HelloWorldLib {
 		#region Public methods
 
 		/// <summary>
-		/// Prints message to <see cref="Console.Out"/> with language from <see cref="MessageLanguage"/>.
+		/// Prints message to all outputs.
 		/// </summary>
 		public void Print() {
+			if(!_configurations.Any()) throw new ApplicationException("No printing outputs configured");
 			foreach (var configuration in _configurations) {
 				switch (configuration.OutputType) {
 					case OutputType.Console:
@@ -59,7 +60,13 @@ namespace HelloWorldLib {
 
 	}
 
+	/// <summary>
+	/// Interface for printing
+	/// </summary>
 	public interface IHelloWorld {
+		/// <summary>
+		/// Prints "Hello, World"
+		/// </summary>
 		void Print();
 	}
 }

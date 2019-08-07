@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Runtime.CompilerServices;
-using HelloWorldLib.Output;
 
-namespace HelloWorldLib.ConsoleConfiguration {
+namespace HelloWorldLib.Output.ConsoleConfiguration {
 	class ConsoleOutputConfiguration : IOutputConfiguration {
 		internal ConsoleOutputConfiguration() : this(ConsoleColor.White, ConsoleColor.Black) { }
 

@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using HelloWorldLib.ConsoleConfiguration;
 using HelloWorldLib.Output;
+using HelloWorldLib.Output.ConsoleConfiguration;
 
 namespace HelloWorldLib {
 	/// <summary>
@@ -14,13 +14,14 @@ namespace HelloWorldLib {
 		private Language _language = Language.English;
 		private readonly HelloWorldMessageRepository _helloWorldMessageRepository;
 		private string _message;
-		internal readonly List<IOutputConfiguration> _outputConfigurations;
 
 		#endregion
 
+		internal readonly List<IOutputConfiguration> OutputConfigurations;
+
 		public HelloWorldBuilder() {
 			_helloWorldMessageRepository = new HelloWorldMessageRepository();
-			_outputConfigurations = new List<IOutputConfiguration>();
+			OutputConfigurations = new List<IOutputConfiguration>();
 		}
 
 		/// <summary>
@@ -28,7 +29,7 @@ namespace HelloWorldLib {
 		/// </summary>
 		/// <returns></returns>
 		public HelloWorld Build() {
-			var helloWorld = new HelloWorld(_outputConfigurations) {
+			var helloWorld = new HelloWorld(OutputConfigurations) {
 				MessageLanguage = _language,
 				Message = _message,
 			};
@@ -57,11 +58,16 @@ namespace HelloWorldLib {
 			return this;
 		}
 
+		/// <summary>
+		/// Configure console printing
+		/// </summary>
+		/// <param name="configureConsole"></param>
+		/// <returns></returns>
 		public HelloWorldBuilder PrintToConsole(Action<FluentConsoleConfiguration> configureConsole = null) {
-			if(_outputConfigurations.Any(o => o.OutputType == OutputType.Console)) throw new ArgumentException("Console output is already specified.");
+			if(OutputConfigurations.Any(o => o.OutputType == OutputType.Console)) throw new ArgumentException("Console output is already specified.");
 			var consoleConfiguration = new FluentConsoleConfiguration();
 			configureConsole?.Invoke(consoleConfiguration);
-			_outputConfigurations.Add(consoleConfiguration.Configuration);
+			OutputConfigurations.Add(consoleConfiguration.Configuration);
 			return this;
 		}
 	}
