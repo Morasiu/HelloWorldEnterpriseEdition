@@ -14,5 +14,21 @@ namespace HelloWorldLibTests {
 			//Assert
 			print.Should().Throw<ApplicationException>();
 		}
+
+		[Fact]
+		public void WhenPrintIsCalled_RaiseOnPrintEvent() {
+			//Arrange
+			var message = "Hello, World!";
+			var helloWorld = new HelloWorldBuilder()
+				.UseMessage(message)
+				.PrintToConsole()
+				.Build();
+			string messageFromEvent = null;
+			helloWorld.OnPrint += (sender, args) => messageFromEvent = args.Message;
+			//Act
+			helloWorld.Print();
+			//Assert
+			messageFromEvent.Should().BeEquivalentTo(message);
+		}
 	}
 }

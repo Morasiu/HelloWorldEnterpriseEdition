@@ -20,6 +20,8 @@ namespace HelloWorldLib {
 		/// </summary>
 		public string Message { get; internal set; }
 
+		public event EventHandler<HelloWorldEventArgs> OnPrint;
+
 		#endregion
 
 		#region Private variables
@@ -42,6 +44,7 @@ namespace HelloWorldLib {
 		/// </summary>
 		public void Print() {
 			if(!_configurations.Any()) throw new ApplicationException("No printing outputs configured");
+			OnPrint?.Invoke(this, new HelloWorldEventArgs(Message));
 			foreach (var configuration in _configurations) {
 				switch (configuration.OutputType) {
 					case OutputType.Console:
