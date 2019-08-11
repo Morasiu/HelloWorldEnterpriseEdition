@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using HelloWorldLib.Consoles;
 using HelloWorldLib.Output;
-using HelloWorldLib.Output.ConsoleConfiguration;
 
 namespace HelloWorldLib {
 	/// <summary>
@@ -10,6 +10,7 @@ namespace HelloWorldLib {
 	/// </summary>
 	public class HelloWorld : IHelloWorld {
 		#region Publics variables
+
 		/// <summary>
 		/// Language of the message.
 		/// </summary>
@@ -20,6 +21,9 @@ namespace HelloWorldLib {
 		/// </summary>
 		public string Message { get; internal set; }
 
+		/// <summary>
+		/// Event raised when message is printed.
+		/// </summary>
 		public event EventHandler<HelloWorldEventArgs> OnPrint;
 
 		#endregion
@@ -43,15 +47,12 @@ namespace HelloWorldLib {
 		/// Prints message to all outputs.
 		/// </summary>
 		public void Print() {
-			if(!_configurations.Any()) throw new ApplicationException("No printing outputs configured");
+			if (!_configurations.Any()) throw new ApplicationException("No printing outputs configured");
 			OnPrint?.Invoke(this, new HelloWorldEventArgs(Message));
 			foreach (var configuration in _configurations) {
 				switch (configuration.OutputType) {
 					case OutputType.Console:
-						var consoleConfiguration = (ConsoleOutputConfiguration) configuration;
-						Console.ForegroundColor = consoleConfiguration.ForegroundColor;
-						Console.BackgroundColor = consoleConfiguration.BackgroundColor;
-						Console.WriteLine(Message);
+						configuration.Printer.Print(Message);
 						break;
 					default:
 						throw new ArgumentOutOfRangeException();
@@ -60,7 +61,6 @@ namespace HelloWorldLib {
 		}
 
 		#endregion
-
 	}
 
 	/// <summary>

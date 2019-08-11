@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using HelloWorldLib.Consoles;
 using HelloWorldLib.Output;
-using HelloWorldLib.Output.ConsoleConfiguration;
 
 namespace HelloWorldLib {
 	/// <summary>

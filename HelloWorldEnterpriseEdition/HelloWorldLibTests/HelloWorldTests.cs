@@ -23,6 +23,7 @@ namespace HelloWorldLibTests {
 				.UseMessage(message)
 				.PrintToConsole()
 				.Build();
+
 			string messageFromEvent = null;
 			helloWorld.OnPrint += (sender, args) => messageFromEvent = args.Message;
 			//Act
