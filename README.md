@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.com/Morasiu/HelloWorldEnterpriseEdition.svg?branch=master)](https://travis-ci.com/Morasiu/HelloWorldEnterpriseEdition)
 
 # Hello World Enterprise Edition
-The most simple program done in the most complicated way.
+The simplest program done in the most complicated way.
 
 ## Roadmap
 
