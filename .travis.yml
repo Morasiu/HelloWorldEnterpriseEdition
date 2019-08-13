@@ -7,4 +7,4 @@ script:
     - cd ./HelloWorldEnterpriseEdition
     - dotnet restore
     - dotnet build
-    - dotnet test ./HelloWorldLibTests/Termgine.Tests.csproj
+    - dotnet test
