@@ -8,6 +8,18 @@ The simplest program done in the most complicated way.
 * Add ASCII animations
 * Add multiple Colors in console
 
+## Features
+
+* Fluent using
+* Event to hookup
+* Unit tests
+* Clound build witj Jarvis
+* Full documentation in XML
+* Multiple languages (English, Polish for now)
+* Design Patterns:
+	* Builder
+	* Factory
+	* Observator
 
 ## How to use it?
 
