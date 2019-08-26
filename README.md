@@ -36,3 +36,13 @@ class Program {
 	}
 }
 ```
+
+## How to run?
+
+Program:
+
+Use `dotnet run` in console.
+
+Tests:
+
+Use `dotnet test` in console.
