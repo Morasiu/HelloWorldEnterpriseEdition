@@ -13,7 +13,7 @@ The simplest program done in the most complicated way.
 * Fluent using
 * Event to hookup
 * Unit tests
-* Clound build witj Jarvis
+* Cloud build with Travis CI
 * Full documentation in XML
 * Multiple languages (English, Polish for now)
 * Design Patterns:
